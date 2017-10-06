@@ -128,6 +128,7 @@ C:\Users\ijtj0\Desktop\BasesGit\CE3101-Proyecto1\Proyecto\Rest\Proyecto1\Proyect
 C:\Users\ijtj0\Desktop\BasesGit\CE3101-Proyecto1\Proyecto\Rest\Proyecto1\Proyecto1\obj\Debug\Proyecto1.csproj.CoreCompileInputs.cache
 C:\Users\ijtj0\Desktop\BasesGit\CE3101-Proyecto1\Proyecto\Rest\Proyecto1\Proyecto1\obj\Debug\Proyecto1.dll
 C:\Users\ijtj0\Desktop\BasesGit\CE3101-Proyecto1\Proyecto\Rest\Proyecto1\Proyecto1\obj\Debug\Proyecto1.pdb
+<<<<<<< HEAD
 C:\Users\esteb\Downloads\CE3101-Proyecto1-master\CE3101-Proyecto1-master\Proyecto\Rest\Proyecto1\Proyecto1\bin\roslyn\csc.exe
 C:\Users\esteb\Downloads\CE3101-Proyecto1-master\CE3101-Proyecto1-master\Proyecto\Rest\Proyecto1\Proyecto1\bin\roslyn\csc.exe.config
 C:\Users\esteb\Downloads\CE3101-Proyecto1-master\CE3101-Proyecto1-master\Proyecto\Rest\Proyecto1\Proyecto1\bin\roslyn\csc.rsp
@@ -193,3 +194,5 @@ C:\Users\esteb\Downloads\CE3101-Proyecto1-master\CE3101-Proyecto1-master\Proyect
 C:\Users\esteb\Downloads\CE3101-Proyecto1-master\CE3101-Proyecto1-master\Proyecto\Rest\Proyecto1\Proyecto1\obj\Debug\Proyecto1.csproj.CoreCompileInputs.cache
 C:\Users\esteb\Downloads\CE3101-Proyecto1-master\CE3101-Proyecto1-master\Proyecto\Rest\Proyecto1\Proyecto1\obj\Debug\Proyecto1.dll
 C:\Users\esteb\Downloads\CE3101-Proyecto1-master\CE3101-Proyecto1-master\Proyecto\Rest\Proyecto1\Proyecto1\obj\Debug\Proyecto1.pdb
+=======
+>>>>>>> 4bbda2e463e7e00f0fb0cc0fcec04b46bb65f7f0
