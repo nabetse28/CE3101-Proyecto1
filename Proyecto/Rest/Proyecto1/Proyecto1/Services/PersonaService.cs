@@ -51,9 +51,6 @@ namespace Proyecto1.Services
             System.Data.SqlClient.SqlConnection conn;
             SqlCommand command;
 
-
-            
-
             conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
             conn.Open();
 
@@ -108,5 +105,39 @@ namespace Proyecto1.Services
             conn.Close();
 
         }
+
+        public bool SignInVerification(int id, string contraseña)
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+            SqlDataReader read;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+
+            
+            command = new SqlCommand("SELECT Contraseña from Persona WHERE IdCedula="+id.ToString(), conn);
+
+            read = command.ExecuteReader();
+
+            string valor = "";
+            
+            while (read.Read())
+            {
+                valor = read["Contraseña"].ToString();
+ 
+            }
+
+            if (contraseña == valor)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        
     }
 }

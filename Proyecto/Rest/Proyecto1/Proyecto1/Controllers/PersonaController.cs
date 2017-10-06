@@ -29,6 +29,14 @@ namespace Proyecto1.Controllers
             con.PostPersona(persona);
         }
 
+        [HttpGet]
+        [Route("SignInVerification")]
+        public IHttpActionResult SignInVerification(int id, string contraseña)
+        {
+            PersonaService con = new PersonaService();
+            return Ok(con.SignInVerification(id,contraseña)); 
+        }
+
 
     }
 }
