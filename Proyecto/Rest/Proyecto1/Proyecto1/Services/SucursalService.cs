@@ -18,7 +18,7 @@ namespace Proyecto1.Services
 
             conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
             conn.Open();
-            command = new SqlCommand("SELECT *  from Sucursal", conn);
+            command = new SqlCommand("SELECT *  from Sucursal where LogicDelete = 0", conn);
             read = command.ExecuteReader();
 
             List<Sucursal> ListSucursales = new List<Sucursal>();

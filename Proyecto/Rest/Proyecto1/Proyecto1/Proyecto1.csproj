@@ -905,6 +905,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CasaFarmaceuticaService.cs" />
     <Compile Include="Services\EmpresaService.cs" />
     <Compile Include="Services\EnfermedadService.cs" />
     <Compile Include="Services\PersonaService.cs" />

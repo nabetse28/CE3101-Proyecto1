@@ -43,6 +43,7 @@ CREATE TABLE Medicamento(
 CREATE TABLE CasaFarmaceutica(
   IdCasaFarmaceutica INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   Nombre VARCHAR(50) NOT NULL,
+  LogicDelete BIT NOT NULL DEFAULT 0
 )
 
 CREATE TABLE PersonaxSucursal(

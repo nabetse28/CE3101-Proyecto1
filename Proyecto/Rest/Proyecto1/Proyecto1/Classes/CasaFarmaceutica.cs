@@ -9,6 +9,5 @@ namespace Proyecto1.Classes
     {
         public int IdCasaFarmaceutica { get; set; }
         public string Nombre { get; set; }
-        public bool LogicDelete { get; set; }
     }
 }
