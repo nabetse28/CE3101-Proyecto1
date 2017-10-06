@@ -51,9 +51,6 @@ namespace Proyecto1.Services
             conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
             conn.Open();
 
-            SqlParameter IdSucursal = new SqlParameter("@IdSucursal", System.Data.SqlDbType.Int);
-            IdSucursal.Value = sucursal.IdSucursal;
-
             SqlParameter IdEmpresa = new SqlParameter("@IdEmpresa", System.Data.SqlDbType.Int);
             IdEmpresa.Value = sucursal.IdEmpresa;
 
@@ -75,19 +72,16 @@ namespace Proyecto1.Services
             SqlParameter DescripcionDireccion = new SqlParameter("@DescripcionDireccion", System.Data.SqlDbType.VarChar);
             DescripcionDireccion.Value = sucursal.DescripcionDireccion;
 
-            SqlParameter LogicDelete = new SqlParameter("@LogicDelete", System.Data.SqlDbType.Bit);
-            LogicDelete.Value = sucursal.LogicDelete;
 
-            command = new SqlCommand("insert into Sucursal(IdSucursal,IdEmpresa,Administrador,Nombre,Provincia,Canton,Distrito,DescripcionDireccion,LogicDelete) VALUES (@IdSucursal,@IdEmpresa,@Administrador,@Nombre,@Provincia,@Canton,@Distrito,@DescripcionDireccion,@LogicDelete)", conn);
+            command = new SqlCommand("insert into Sucursal(IdEmpresa,Administrador,Nombre,Provincia,Canton,Distrito,DescripcionDireccion) VALUES (@IdEmpresa,@Administrador,@Nombre,@Provincia,@Canton,@Distrito,@DescripcionDireccion)", conn);
             command.Parameters.Add(IdEmpresa);
-            command.Parameters.Add(IdSucursal);
+            
             command.Parameters.Add(Administrador);
             command.Parameters.Add(Nombre);
             command.Parameters.Add(Provincia);
             command.Parameters.Add(Canton);
             command.Parameters.Add(Distrito);
             command.Parameters.Add(DescripcionDireccion);
-            command.Parameters.Add(LogicDelete);
 
             command.ExecuteNonQuery();
 

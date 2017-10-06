@@ -8,6 +8,7 @@ namespace Proyecto1.Classes
     public class Sucursal
     {
         public int IdSucursal { get; set; }
+        public int IdEmpresa { get; set; }
         public string Nombre { get; set; }
         public int Administrador { get; set; }
         public string Provincia { get; set; }
