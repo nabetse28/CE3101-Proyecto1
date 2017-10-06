@@ -94,11 +94,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Classes\CasaFarmaceutica.cs" />
+    <Compile Include="Classes\Empresa.cs" />
     <Compile Include="Classes\Enfermedad.cs" />
+    <Compile Include="Classes\EnfermedadxPersona.cs" />
+    <Compile Include="Classes\Medicamento.cs" />
+    <Compile Include="Classes\MedicamentoxCasaFarmaceutica.cs" />
+    <Compile Include="Classes\MedicamentoxSucursal.cs" />
+    <Compile Include="Classes\Pedido.cs" />
+    <Compile Include="Classes\PedidoxMedicamento.cs" />
     <Compile Include="Classes\Persona.cs" />
+    <Compile Include="Classes\PersonaxSucursal.cs" />
+    <Compile Include="Classes\Rol.cs" />
     <Compile Include="Classes\Sucursal.cs" />
+    <Compile Include="Controllers\CasaFarmaceuticaController.cs" />
+    <Compile Include="Controllers\EmpresaController.cs" />
     <Compile Include="Controllers\EnfermedadController.cs" />
+    <Compile Include="Controllers\EnfermedadxPersonaController.cs" />
+    <Compile Include="Controllers\MedicamentoController.cs" />
+    <Compile Include="Controllers\MedicamentoxCasaFarmaceuticaController.cs" />
+    <Compile Include="Controllers\MedicamentoxSucursalController.cs" />
+    <Compile Include="Controllers\PedidoController.cs" />
+    <Compile Include="Controllers\PedidoxMedicamentoController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
+    <Compile Include="Controllers\PersonaxSucursalController.cs" />
+    <Compile Include="Controllers\RolController.cs" />
+    <Compile Include="Controllers\SucursalController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
