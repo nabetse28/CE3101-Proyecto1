@@ -7,5 +7,7 @@ namespace Proyecto1.Classes
 {
     public class Enfermedad
     {
+        public int IdEnfermedad { get; set; }
+        public string Nombre { get; set; }
     }
 }

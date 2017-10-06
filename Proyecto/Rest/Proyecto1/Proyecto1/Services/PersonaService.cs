@@ -15,9 +15,8 @@ namespace Proyecto1.Services
             System.Data.SqlClient.SqlConnection conn;
             SqlCommand command;
             SqlDataReader read;
-            
 
-            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Farmacia;Integrated Security=True");
             conn.Open();
             command = new SqlCommand("SELECT *  from Persona", conn);
             read = command.ExecuteReader();
@@ -26,8 +25,19 @@ namespace Proyecto1.Services
             while (read.Read())
             {
                 Persona persona = new Persona();
-               // persona.IdCedula = Convert.ToInt32(read["IdCedula"]);
+                persona.IdCedula = Convert.ToInt32(read["IdCedula"]);
                 persona.Nombre = read["Nombre"].ToString();
+                persona.Apellido1 = read["Apellido1"].ToString();
+                persona.Apellido2 = read["Apellido2"].ToString();
+                persona.Telefono = Convert.ToInt32(read["Telefono"]);
+                persona.Contraseña = read["Contraseña"].ToString();
+                persona.Provincia = read["Provincia"].ToString();
+                persona.Canton = read["Canton"].ToString();
+                persona.Distrito = read["Distrito"].ToString();
+                persona.DescripcionDireccion = read["DescripcionDireccion"].ToString();
+                persona.FechaNacimiento = Convert.ToDateTime(read["FechaNacimiento"]);
+
+               // persona.IdCedula = Convert.ToInt32(read["IdCedula"]);
                 //persona.Apellido1 = read["Apellido1"].ToString();
 
                 ListPersonas.Add(persona);
@@ -43,33 +53,62 @@ namespace Proyecto1.Services
             System.Data.SqlClient.SqlConnection conn;
             SqlCommand command;
 
+
             
 
-
-            //string insert = @"insert into Persona(Nombre,Apellido,Salario) VALUES ('Abuela','Varas',130000)";
-
-            conn = new SqlConnection("Data Source=(local);Initial Catalog=Test;Integrated Security=True");
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Farmacia;Integrated Security=True");
             conn.Open();
+
+            SqlParameter IdCedula = new SqlParameter("@IdCedula", System.Data.SqlDbType.VarChar);
+            IdCedula.Value = persona.IdCedula;
 
             SqlParameter Nombre = new SqlParameter("@Nombre", System.Data.SqlDbType.VarChar);
             Nombre.Value = persona.Nombre;
 
-            SqlParameter Apellido = new SqlParameter("@Apellido", System.Data.SqlDbType.VarChar);
-            Apellido.Value = persona.Apellido;
+            SqlParameter Apellido1 = new SqlParameter("@Apellido1", System.Data.SqlDbType.VarChar);
+            Apellido1.Value = persona.Apellido1;
 
-            SqlParameter Salario = new SqlParameter("@Salario", System.Data.SqlDbType.Int);
-            Salario.Value = persona.Salario;
+            SqlParameter Apellido2 = new SqlParameter("@Apellido2", System.Data.SqlDbType.Int);
+            Apellido2.Value = persona.Apellido2;
 
-            //persona.IdCedula.ToString() + "," + persona.Nombre.ToString() + "," + persona.Apellido1.ToString();
-            command = new SqlCommand("insert into Persona(Nombre,Apellido,Salario) VALUES (@Nombre,@Apellido,@Salario)", conn);
+            SqlParameter Telefono = new SqlParameter("@Telefono", System.Data.SqlDbType.Int);
+            Telefono.Value = persona.Telefono;
+
+            SqlParameter Contraseña = new SqlParameter("@Contraseña", System.Data.SqlDbType.VarChar);
+            Contraseña.Value = persona.Contraseña;
+
+            SqlParameter Provincia = new SqlParameter("@Provincia", System.Data.SqlDbType.VarChar);
+            Provincia.Value = persona.Provincia;
+
+            SqlParameter Canton = new SqlParameter("@Canton", System.Data.SqlDbType.VarChar);
+            Canton.Value = persona.Canton;
+
+            SqlParameter Distrito = new SqlParameter("@Distrito", System.Data.SqlDbType.VarChar);
+            Distrito.Value = persona.Distrito;
+
+            SqlParameter DescripcionDireccion = new SqlParameter("@DescripcionDireccion", System.Data.SqlDbType.VarChar);
+            DescripcionDireccion.Value = persona.DescripcionDireccion;
+
+            SqlParameter FechaNacimiento = new SqlParameter("@FechaNacimiento", System.Data.SqlDbType.Date);
+            FechaNacimiento.Value = persona.FechaNacimiento;
+            
+            command = new SqlCommand("insert into Persona(IdCedula,Nombre,Apellido1,Apellido2,Telefono,Contraseña,Provincia,Canton,Distrito,DescripcionDireccion,FechaNacimiento) VALUES (@IdCedula,@Nombre,@Apellido1,@Apellido2,@Telefono,@Contraseña,@Provincia,@Canton,@Distrito,@DescripcionDireccion,@FechaNacimiento)", conn);
+            command.Parameters.Add(IdCedula);
             command.Parameters.Add(Nombre);
-            command.Parameters.Add(Apellido);
-            command.Parameters.Add(Salario);
+            command.Parameters.Add(Apellido1);
+            command.Parameters.Add(Apellido2);
+            command.Parameters.Add(Telefono);
+            command.Parameters.Add(Contraseña);
+            command.Parameters.Add(Provincia);
+            command.Parameters.Add(Canton);
+            command.Parameters.Add(Distrito);
+            command.Parameters.Add(DescripcionDireccion);
+            command.Parameters.Add(FechaNacimiento);
 
-            command.ExecuteNonQuery();                   
-            
+            command.ExecuteNonQuery();
+
             conn.Close();
-            
+
         }
     }
 }
