@@ -34,11 +34,7 @@ namespace Proyecto1.Services
             System.Data.SqlClient.SqlConnection conn;
             SqlCommand command;
 
-<<<<<<< HEAD
             conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
-=======
-            conn = new SqlConnection("Data Source=(local);Initial Catalog=Farmacia;Integrated Security=True");
->>>>>>> 4bbda2e463e7e00f0fb0cc0fcec04b46bb65f7f0
             conn.Open();
             
             command = new SqlCommand("insert  Enfermedad(Nombre) VALUES (@Nombre)", conn);
