@@ -96,6 +96,7 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Classes\Enfermedad.cs" />
     <Compile Include="Classes\Persona.cs" />
+    <Compile Include="Classes\Sucursal.cs" />
     <Compile Include="Controllers\EnfermedadController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Global.asax.cs">

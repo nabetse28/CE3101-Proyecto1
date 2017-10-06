@@ -5,10 +5,11 @@ using System.Web;
 
 namespace Proyecto1.Classes
 {
-    public class Enfermedad
+    public class PersonaxSucursal
     {
-        public int IdEnfermedad { get; set; }
-        public string Nombre { get; set; }
+        public int IdCedula { get; set; }
+        public int IdSucursal { get; set; }
+        public int SalarioHora { get; set;}
         public bool LogicDelete { get; set; }
     }
 }

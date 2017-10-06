@@ -36,9 +36,7 @@ namespace Proyecto1.Services
                 persona.Distrito = read["Distrito"].ToString();
                 persona.DescripcionDireccion = read["DescripcionDireccion"].ToString();
                 persona.FechaNacimiento = read["FechaNacimiento"].ToString();
-
-               // persona.IdCedula = Convert.ToInt32(read["IdCedula"]);
-                //persona.Apellido1 = read["Apellido1"].ToString();
+                persona.LogicDelete = Convert.ToBoolean(read["LogicDelete"]);
 
                 ListPersonas.Add(persona);
                 
