@@ -94,12 +94,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Classes\Enfermedad.cs" />
     <Compile Include="Classes\Persona.cs" />
+    <Compile Include="Controllers\EnfermedadController.cs" />
     <Compile Include="Controllers\PersonaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EnfermedadService.cs" />
     <Compile Include="Services\PersonaService.cs" />
   </ItemGroup>
   <ItemGroup>
