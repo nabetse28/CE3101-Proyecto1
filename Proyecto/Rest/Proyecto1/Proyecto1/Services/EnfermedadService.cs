@@ -14,9 +14,9 @@ namespace Proyecto1.Services
             SqlCommand command;
             SqlDataReader read;
 
-            conn = new SqlConnection("Data Source=(local);Initial Catalog=Farmacia;Integrated Security=True");
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
             conn.Open();
-            command = new SqlCommand("SELECT *  from Enfermedad", conn);
+            command = new SqlCommand("SELECT *  from Enfermedad where LogicDelete = 0", conn);
             read = command.ExecuteReader();
             List<Enfermedad> enfermedades = new List<Enfermedad>();
             while (read.Read())
