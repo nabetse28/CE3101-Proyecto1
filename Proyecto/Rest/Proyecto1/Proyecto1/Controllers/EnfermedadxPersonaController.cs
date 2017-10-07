@@ -21,7 +21,7 @@ namespace Proyecto1.Controllers
         }
 
         [HttpPost]
-        [Route("PostMedicamento")]
+        [Route("PostEnfermedadxPersona")]
         public void PostMedicamento([FromBody] EnfermedadxPersona exp)
         {
             EnfermedadxPersonaService con = new EnfermedadxPersonaService();

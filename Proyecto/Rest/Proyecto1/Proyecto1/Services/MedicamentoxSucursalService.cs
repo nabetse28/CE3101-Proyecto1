@@ -10,7 +10,7 @@ namespace Proyecto1.Services
 {
     public class MedicamentoxSucursalService
     {
-        public List<MedicamentoxSucursal> GetAllMedicamentoxCasaFarmaceutica()
+        public List<MedicamentoxSucursal> GetAllMedicamentoxSucursal()
         {
             System.Data.SqlClient.SqlConnection conn;
             SqlCommand command;
@@ -34,7 +34,7 @@ namespace Proyecto1.Services
             }
             return ListMedicamentoxSucursal;
         }
-        public void PostMedicamentoxCasaFarmaceutica([FromBody] MedicamentoxCasaFarmaceutica mxs)
+        public void PostMedicamentoxSucursal([FromBody] MedicamentoxSucursal mxs)
         {
             System.Data.SqlClient.SqlConnection conn;
             SqlCommand command;
@@ -43,13 +43,13 @@ namespace Proyecto1.Services
             conn.Open();
 
             SqlParameter IdSucursal = new SqlParameter("@IdCasaFarmaceutica", System.Data.SqlDbType.Int);
-            IdSucursal.Value = mxs.IdCasaFarmaceutica;
+            IdSucursal.Value = mxs.IdSucursal;
 
             SqlParameter IdMedicamento = new SqlParameter("@IdMedicamento", System.Data.SqlDbType.Int);
             IdMedicamento.Value = mxs.IdMedicamento;
 
             SqlParameter PrecioSucursal = new SqlParameter("@PrecioSucursal", System.Data.SqlDbType.Int);
-            PrecioSucursal.Value = mxs.PrecioProveedor;
+            PrecioSucursal.Value = mxs.PrecioSucursal;
 
 
 

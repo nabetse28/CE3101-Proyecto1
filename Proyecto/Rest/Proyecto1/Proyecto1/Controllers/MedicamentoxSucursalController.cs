@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Proyecto1.Classes;
+using Proyecto1.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -11,7 +13,7 @@ namespace Proyecto1.Controllers
     public class MedicamentoxSucursalController : ApiController
     {
         [HttpGet]
-        [Route("GetAllMedicamentoxCasaFarmaceutica")]
+        [Route("GetAllMedicamentoxSucursal")]
         public IHttpActionResult GetAllMedicamentoxCasaFarmaceutica()
         {
             MedicamentoxSucursalService con = new MedicamentoxSucursalService();
@@ -23,7 +25,7 @@ namespace Proyecto1.Controllers
         public void PostMedicamento([FromBody] MedicamentoxSucursal mxs)
         {
             MedicamentoxSucursalService con = new MedicamentoxSucursalService();
-            con.PostMedicamento(mxs);
+            con.PostMedicamentoxSucursal(mxs);
         }
     }
 }
