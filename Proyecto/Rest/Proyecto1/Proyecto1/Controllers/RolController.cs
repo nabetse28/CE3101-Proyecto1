@@ -15,7 +15,7 @@ namespace Proyecto1.Controllers
 
         [HttpGet]
         [Route("GetAllRol")]
-        public IHttpActionResult GetAllRoll()
+        public IHttpActionResult GetAllRoles()
         {
             RolService con = new RolService();
             return Ok(con.GetAllRoles());
