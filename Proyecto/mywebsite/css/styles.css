@@ -100,9 +100,9 @@ h1{
 }
 /* animacion CSS segun porcentaje de progreso */
 @keyframes bgmove{/* le damos nombre a la animacion para asociarla despues*/
-0%{background-position:-0px -480px; }
+0%{background-position:-0px -100px; }
 50%{background-position: 0px 0px; }
-100%{background-position:-0px -480px; }
+100%{background-position:-0px -100px; }
 }
 /*daremos movimiento al background del body*/
 body{
