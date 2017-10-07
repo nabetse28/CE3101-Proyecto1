@@ -940,6 +940,8 @@
     <Compile Include="Services\EnfermedadService.cs" />
     <Compile Include="Services\MedicamentoService.cs" />
     <Compile Include="Services\PersonaService.cs" />
+    <Compile Include="Services\PersonaxSucursalService.cs" />
+    <Compile Include="Services\RolService.cs" />
     <Compile Include="Services\SucursalService.cs" />
   </ItemGroup>
   <ItemGroup>
