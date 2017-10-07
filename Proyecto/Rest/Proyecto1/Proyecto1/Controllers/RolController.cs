@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using Proyecto1.Services;
+using Proyecto1.Classes;
 
 namespace Proyecto1.Controllers
 {
@@ -16,7 +18,7 @@ namespace Proyecto1.Controllers
         public IHttpActionResult GetAllRoll()
         {
             RolService con = new RolService();
-            return Ok(con.GetAllRol());
+            return Ok(con.GetAllRoles());
         }
 
         [HttpPost]
