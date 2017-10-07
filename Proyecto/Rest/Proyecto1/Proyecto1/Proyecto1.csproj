@@ -80,7 +80,37 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="mywebsite\.vs\config\applicationhost.config" />
+    <Content Include="mywebsite\.vs\mywebsite\v15\.suo" />
+    <Content Include="mywebsite\.vs\mywedsite\v15\.suo" />
+    <Content Include="mywebsite\.vs\ProjectSettings.json" />
+    <Content Include="mywebsite\.vs\slnx.sqlite" />
+    <Content Include="mywebsite\.vs\VSWorkspaceState.json" />
+    <Content Include="mywebsite\css\ABEAKRG.TTF" />
+    <Content Include="mywebsite\rsc\imgs\Thumbs.db" />
+    <Content Include="mywebsite\rsc\vids\Thumbs.db" />
     <None Include="packages.config" />
+    <Content Include="mywebsite\contacto.html" />
+    <Content Include="mywebsite\css\styles.css" />
+    <Content Include="mywebsite\index.html" />
+    <Content Include="mywebsite\login.html" />
+    <Content Include="mywebsite\main.html" />
+    <Content Include="mywebsite\register.html" />
+    <Content Include="mywebsite\rsc\imgs\bg.jpg" />
+    <Content Include="mywebsite\rsc\imgs\bg.png" />
+    <Content Include="mywebsite\rsc\imgs\border.png" />
+    <Content Include="mywebsite\rsc\imgs\bot.png" />
+    <Content Include="mywebsite\rsc\imgs\faceico.png" />
+    <Content Include="mywebsite\rsc\imgs\foo.png" />
+    <Content Include="mywebsite\rsc\imgs\mnubg.png" />
+    <Content Include="mywebsite\rsc\imgs\twitter-icon.png" />
+    <Content Include="mywebsite\rsc\imgs\youtubeicon.png" />
+    <Content Include="mywebsite\rsc\pics\1.png" />
+    <Content Include="mywebsite\rsc\pics\2.png" />
+    <Content Include="mywebsite\rsc\pics\3.png" />
+    <Content Include="mywebsite\rsc\pics\4.png" />
+    <Content Include="mywebsite\rsc\pics\5.png" />
+    <Content Include="mywebsite\rsc\vids\movie.mp4" />
     <Content Include="Scripts - Views\IndexController.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -908,6 +938,7 @@
     <Compile Include="Services\CasaFarmaceuticaService.cs" />
     <Compile Include="Services\EmpresaService.cs" />
     <Compile Include="Services\EnfermedadService.cs" />
+    <Compile Include="Services\MedicamentoService.cs" />
     <Compile Include="Services\PersonaService.cs" />
     <Compile Include="Services\SucursalService.cs" />
   </ItemGroup>

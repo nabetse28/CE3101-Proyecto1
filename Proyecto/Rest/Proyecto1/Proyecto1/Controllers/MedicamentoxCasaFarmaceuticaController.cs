@@ -7,7 +7,24 @@ using System.Web.Http;
 
 namespace Proyecto1.Controllers
 {
+    [RoutePrefix("api/MedicamentoxCasaFarmaceutica")]
     public class MedicamentoxCasaFarmaceuticaController : ApiController
     {
+
+        [HttpGet]
+        [Route("GetAllMedicamentoxCasaFarmaceutica")]
+        public IHttpActionResult GetAllMedicamentoxCasaFarmaceutica()
+        {
+            MedicamentoxCasaFarmaceuticaService con = new MedicamentoxCasaFarmaceuticaService();
+            return Ok(con.GetAllMedicamentoxCasaFarmaceutica());
+        }
+
+        [HttpPost]
+        [Route("PostMedicamentoxCasaFarmaceutica")]
+        public void PostMedicamento([FromBody] MedicamentoxCasaFarmaceutica mxcf)
+        {
+            MedicamentoxCasaFarmaceuticaService con = new MedicamentoxCasaFarmaceuticaService();
+            con.PostMedicamento(mxcf);
+        }
     }
 }
