@@ -938,7 +938,10 @@
     <Compile Include="Services\CasaFarmaceuticaService.cs" />
     <Compile Include="Services\EmpresaService.cs" />
     <Compile Include="Services\EnfermedadService.cs" />
+    <Compile Include="Services\EnfermedadxPersonaService.cs" />
     <Compile Include="Services\MedicamentoService.cs" />
+    <Compile Include="Services\MedicamentoxCasaFarmaceuticaService.cs" />
+    <Compile Include="Services\MedicamentoxSucursalService.cs" />
     <Compile Include="Services\PersonaService.cs" />
     <Compile Include="Services\SucursalService.cs" />
   </ItemGroup>
