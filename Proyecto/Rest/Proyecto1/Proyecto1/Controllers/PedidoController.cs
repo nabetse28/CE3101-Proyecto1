@@ -27,12 +27,5 @@ namespace Proyecto1.Controllers
             PedidoService con = new PedidoService();
             con.PostPedido(pedido);
         }
-        [HttpGet]
-        [Route("GetPedidos")]
-        public IHttpActionResult GetPedidos(int id)
-        {
-            PedidoService con = new PedidoService();
-            return Ok(con.GetPedidos(id));
-        }
     }
 }
