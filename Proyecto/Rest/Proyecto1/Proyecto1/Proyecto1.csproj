@@ -117,6 +117,7 @@
     <Content Include="Scripts - Views\IndexController.js" />
     <Content Include="Scripts - Views\Login.js" />
     <Content Include="Scripts - Views\Main.js" />
+    <Content Include="Scripts - Views\Pedido.js" />
     <Content Include="Scripts - Views\Register.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
@@ -919,6 +920,7 @@
     <Compile Include="Classes\MedicamentoxCasaFarmaceutica.cs" />
     <Compile Include="Classes\MedicamentoxSucursal.cs" />
     <Compile Include="Classes\Pedido.cs" />
+    <Compile Include="Classes\PedidoId.cs" />
     <Compile Include="Classes\PedidoxMedicamento.cs" />
     <Compile Include="Classes\Persona.cs" />
     <Compile Include="Classes\PersonaxSucursal.cs" />
