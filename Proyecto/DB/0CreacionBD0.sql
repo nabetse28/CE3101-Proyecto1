@@ -1,5 +1,5 @@
 CREATE TABLE Persona(
-	IdCedula INT NOT NULL PRIMARY KEY,
+  IdCedula INT NOT NULL PRIMARY KEY,
   Nombre VARCHAR(50) NOT NULL,
   Apellido1 VARCHAR(50) NOT NULL,
   Apellido2 VARCHAR(50) NOT NULL,
@@ -14,12 +14,18 @@ CREATE TABLE Persona(
 )
 
 CREATE TABLE Rol(
-  IdRol INT NOT NULL IDENTITY(1,1),
-  IdCedula INT NOT NULL,
+  IdRol INT NOT NULL IDENTITY(1,1)  PRIMARY KEY,
   Nombre VARCHAR(50) NOT NULL,
   Descripcion VARCHAR(50) NOT NULL,
   LogicDelete BIT NOT NULL DEFAULT 0
 )
+
+CREATE TABLE PersonaxRol(
+  IdRol INT NOT NULL,
+  IdCedula INT NOT NULL,
+  LogicDelete BIT NOT NULL DEFAULT 0
+)
+
 
 CREATE TABLE Sucursal(
   IdSucursal INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
@@ -105,9 +111,13 @@ CREATE TABLE Empresa(
 )
 
   
-ALTER TABLE Rol
-ADD CONSTRAINT FkRolPersona 
+ALTER TABLE PersonaxRol
+ADD CONSTRAINT FkPersonaxRolPersona 
 FOREIGN KEY (IdCedula) REFERENCES Persona (IdCedula);
+
+ALTER TABLE PersonaxRol
+ADD CONSTRAINT FkPersonaxRolRol
+FOREIGN KEY (IdRol) REFERENCES Rol (IdRol);
 
 ALTER TABLE EnfermedadxPersona
 ADD CONSTRAINT FkEnfermedadxPersonaEnfermedad 
@@ -183,5 +193,5 @@ ADD CONSTRAINT PK_EnfermedadxPersona PRIMARY KEY (IdEnfermedad,IdCedula);
 ALTER TABLE PedidoxMedicamento
 ADD CONSTRAINT PK_PedidoxMedicamento PRIMARY KEY (IdPedido,IdMedicamento);
 
-ALTER TABLE Rol
-ADD CONSTRAINT PK_Rol PRIMARY KEY (IdCedula,IdRol);
+ALTER TABLE PersonaxRol
+ADD CONSTRAINT PK_PersonaxRol PRIMARY KEY (IdCedula,IdRol);

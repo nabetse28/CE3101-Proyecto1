@@ -19,7 +19,13 @@ namespace Proyecto1.Controllers
             MedicamentoxSucursalService con = new MedicamentoxSucursalService();
             return Ok(con.GetAllMedicamentoxSucursal());
         }
-
+        [HttpGet]
+        [Route("GetMedicamentoxSucursal")]
+        public IHttpActionResult GetMedicamentoxSucursal(int id)
+        {
+            MedicamentoxSucursalService con = new MedicamentoxSucursalService();
+            return Ok(con.GetMedicamentoxSucursal(id));
+        }
         [HttpPost]
         [Route("PostMedicamentoxSucursal")]
         public void PostMedicamento([FromBody] MedicamentoxSucursal mxs)

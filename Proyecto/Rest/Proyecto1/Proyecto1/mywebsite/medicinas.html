@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE HTML>
-<html>
+<html ng-app="Medicamentos">
 <head>
     <title>Pedidos</title>
 
@@ -13,6 +13,8 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts - Views/Medicamentos.js"></script>
 
     <link rel='stylesheet' href='css/styles.css'>
 </head>
@@ -34,110 +36,16 @@
         </header>
 
         <section id='main' class="container">
-            <section id='banner'>
-                <p>Selecciona las<br>Medicinas</p>
-            </section>
+            
             <section id='contenido'>
 
                 <h1>Seleciona las medicinas</h1><br>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-sm-3" style="background-color:lavenderblush;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                        <div class="col-sm-3" style="background-color:lavenderblush;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                        <div class="col-sm-3" style="background-color:lavenderblush;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                        <div class="col-sm-3" style="background-color:lavenderblush;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col-sm-3" style="background-color:lavender;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                        <div class="col-sm-3" style="background-color:lavender;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                        <div class="col-sm-3" style="background-color:lavender;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                        <div class="col-sm-3" style="background-color:lavender;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col-sm-3" style="background-color:lavenderblush;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                        <div class="col-sm-3" style="background-color:lavenderblush;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                        <div class="col-sm-3" style="background-color:lavenderblush;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
-                            <p>Cantidad deseada: 0</p>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
-                        </div>
-                        <div class="col-sm-3" style="background-color:lavenderblush;">
-                            <h3>Nombre del medicamento</h3>
-                            <h4>Cantida disponible</h4>
-                            <p>Descripcion</p>
+                    <div class="row" ng-controller="medicamentosController">
+                        <div class="col-sm-3" style="background-color:lavenderblush;" ng-repeat="med in medicamentosid">
+                            <h3>{{med.Nombre}}</h3>
+                            <h4>Cantida disponible: {{med.Cantidad}}</h4>
+                            <p>Precio: {{med.Precio}}</p>
                             <p>Cantidad deseada: 0</p>
                             <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
                             <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-trash-o"></i></button>
@@ -145,15 +53,6 @@
                     </div> 
                 </div>
             </section>
-            <div class="container" align="center">
-                <ul class="pagination">
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                </ul>
-            </div>
         </section>
 
 

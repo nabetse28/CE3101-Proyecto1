@@ -34,6 +34,29 @@ namespace Proyecto1.Services
             }
             return ListMedicamentoxSucursal;
         }
+        public List<MedicamentoId> GetMedicamentoxSucursal(int idSuc)
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+            SqlDataReader read;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+            command = new SqlCommand("select Medicamento.Nombre,MedicamentoxSucursal.Cantidad,MedicamentoxSucursal.PrecioSucursal from MedicamentoxSucursal inner join Medicamento on MedicamentoxSucursal.IdMedicamento=Medicamento.IdMedicamento where Medicamento.LogicDelete=0 and MedicamentoxSucursal.IdSucursal="+idSuc.ToString(), conn);
+            read = command.ExecuteReader();
+            List<MedicamentoId> ListMedicamentoxSucursal = new List<MedicamentoId>();
+            while (read.Read())
+            {
+                MedicamentoId mxs = new MedicamentoId();
+                mxs.Cantidad = Convert.ToInt32(read["Cantidad"]);
+                mxs.Precio = Convert.ToInt32(read["PrecioSucursal"]);
+                mxs.Nombre = Convert.ToString(read["Nombre"]);
+
+                ListMedicamentoxSucursal.Add(mxs);
+
+            }
+            return ListMedicamentoxSucursal;
+        }
         public void PostMedicamentoxSucursal([FromBody] MedicamentoxSucursal mxs)
         {
             System.Data.SqlClient.SqlConnection conn;
