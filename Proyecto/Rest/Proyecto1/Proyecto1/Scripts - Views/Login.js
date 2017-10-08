@@ -1,19 +1,9 @@
-﻿var app = angular.module('myApp', ['ngRoute'])
-   /* .config(function ($routeProvider) {
-        $routeProvider
-            .when("/home", {
-                templateUrl: "main.html",
-                controller: "myController"
-            })
-            .when("/register", {
-                templateUrl: "register.html",
-                controller: "myController"
-            })
-    })*/
-app.controller('myController', function ($scope, $http) {
+﻿var app = angular.module('myApp', ['ngRoute']);
+
+
+app.controller('myController', function ($scope, $http,$location) {
         $scope.id = $scope.id;
         $scope.password = $scope.password;
-
         $scope.log = function (id, password) {
             console.log("Ya entre");
             console.log(id, password);
@@ -22,11 +12,21 @@ app.controller('myController', function ($scope, $http) {
                     $scope.res = response;
                     if (response.data == true) {
                         console.log("Logged");
+                        window.localStorage.setItem("id", id);
+                        console.log(window.localStorage.getItem("id"));
+                       window.location = "http://localhost:64698/mywebsite/main.html";
                         
                     } else {
-                        console.log("The Id and password are not correct");
+                        alert("El usuario o la contraseña no son correctos");
                     }
                 });
         };
 });
 
+
+app.controller("mainController", function ($scope, $http, $location) {
+    console.log("HOLA");
+    $scope.h = "HOLA";//window.localStorage.getItem("id");
+    console.log(window.localStorage.getItem("id"));
+
+});

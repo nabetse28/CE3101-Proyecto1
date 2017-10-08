@@ -87,6 +87,9 @@
     <Content Include="mywebsite\.vs\slnx.sqlite" />
     <Content Include="mywebsite\.vs\VSWorkspaceState.json" />
     <Content Include="mywebsite\css\ABEAKRG.TTF" />
+    <Content Include="mywebsite\medicinas.html" />
+    <Content Include="mywebsite\pedidos.html" />
+    <Content Include="mywebsite\repedido.html" />
     <Content Include="mywebsite\rsc\imgs\Thumbs.db" />
     <Content Include="mywebsite\rsc\vids\Thumbs.db" />
     <None Include="packages.config" />
@@ -113,6 +116,7 @@
     <Content Include="mywebsite\rsc\vids\movie.mp4" />
     <Content Include="Scripts - Views\IndexController.js" />
     <Content Include="Scripts - Views\Login.js" />
+    <Content Include="Scripts - Views\Main.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
