@@ -943,6 +943,8 @@
     <Compile Include="Services\MedicamentoService.cs" />
     <Compile Include="Services\MedicamentoxCasaFarmaceuticaService.cs" />
     <Compile Include="Services\MedicamentoxSucursalService.cs" />
+    <Compile Include="Services\PedidoService.cs" />
+    <Compile Include="Services\PedidoxMedicamentoService.cs" />
     <Compile Include="Services\PersonaService.cs" />
     <Compile Include="Services\PersonaxSucursalService.cs" />
     <Compile Include="Services\RolService.cs" />
