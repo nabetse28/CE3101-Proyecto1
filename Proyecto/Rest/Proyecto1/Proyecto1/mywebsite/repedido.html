@@ -1,5 +1,5 @@
-<!DOCTYPE HTML>
-<html>
+﻿<!DOCTYPE HTML>
+<html ng-app="RPedidos">
 <head>
     <title>Pedidos</title>
 
@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts - Views/RealizarPedidos.js"></script>
 
     <link rel='stylesheet' href='css/styles.css'>
 </head>
@@ -32,26 +34,20 @@
         </header>
 
         <section id='main' class="container">
-            <section id='banner'>
-                <p>Realizar nuevo<br>Pedido</p>
-            </section>
             <section id='contenido'>
-                <div class="list-group">
+                <h1>Mis Pedidos</h1>
+
+                <br><br>
+
+                <div class="list-group" ng-controller="rPedidosController">
                     <h2>Seleciona una sucursal</h2>
-                    <a href="medicinas.html" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pedido Numero: 57853</h4>
-                        <h5 class="list-group-item-text">List Group Item Text</h5>
-                        <p class="list-group-item-text">Descripcion del pedido</p>
-                    </a>
-                    <a href="medicinas.html" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pedido Numero: 51231</h4>
-                        <h5 class="list-group-item-text">Sucursal</h5>
-                        <p class="list-group-item-text">Descripcion del pedido</p>
-                    </a>
-                    <a href="medicinas.html" class="list-group-item">
-                        <h4 class="list-group-item-heading">Pedido Numero: 578123</h4>
-                        <h5 class="list-group-item-text">Sucursal</h5>
-                        <p class="list-group-item-text">Descripcion del pedido</p>
+                    <a href="medicinas.html" class="list-group-item" ng-repeat="sucursal in sucursales">
+                        <center>
+                            <h4 class="list-group-item-text">Sucursal: {{sucursal.Nombre}}</h4>
+                            <h6 class="list-group-item-text">Provincia: {{sucursal.Provincia}}</h6>
+                            <h6 class="list-group-item-text">Canton: {{sucursal.Canton}}</h6>
+                            <h6 class="list-group-item-text">Distrito: {{sucursal.Distrito}}</h6>
+                        </center>
                     </a>
                 </div>
             </section>
