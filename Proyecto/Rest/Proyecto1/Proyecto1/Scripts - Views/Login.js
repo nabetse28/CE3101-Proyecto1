@@ -1,7 +1,9 @@
 ﻿var app = angular.module('myApp', []);
 
 
-app.controller('myController', function ($scope, $http,$location) {
+app.controller('myController', function ($scope, $http, $location) {
+    window.localStorage.clear();
+    console.log(window.localStorage.getItem("id"));
         $scope.id = $scope.id;
         $scope.password = $scope.password;
         $scope.log = function (id, password) {

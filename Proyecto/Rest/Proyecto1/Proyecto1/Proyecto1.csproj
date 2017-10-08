@@ -117,7 +117,11 @@
     <Content Include="Scripts - Views\IndexController.js" />
     <Content Include="Scripts - Views\Login.js" />
     <Content Include="Scripts - Views\Main.js" />
+<<<<<<< HEAD
     <Content Include="Scripts - Views\misPedidos.js" />
+=======
+    <Content Include="Scripts - Views\Register.js" />
+>>>>>>> e7b1cb0d77f998bcfa35571a18025451474ac293
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
