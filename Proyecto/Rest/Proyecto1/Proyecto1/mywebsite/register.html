@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE HTML>
-<html>
-<head>
+<html ng-app="Register">
+<head >
     <title>Register</title>
 
     <!-- comentario: etiquetas META descriptiva para nuestro sitio web-->
     <meta charset='utf-8'><!-- Codificacion de documento para uso de caracteres-->
+    <script src="../Scripts/angular.js"></script>
+    <script src="../Scripts - Views/Register.js"></script>
     <meta name='description' content='Laboratorio #1 HTML5-CSS3'>
     <meta name='keywords' content='HTML5,CSS3,JavaScript'>
     <link rel="shortcut icon" href="html5.png" />
@@ -33,30 +35,33 @@
         <section id='main'>
 
             <section id='registro'>
-                    <form action="" method="post">
+                    <form action="" method="post" ng-controller="registerController">
                         <center>
                             <h2>REGISTRO</h2>
-                            <input type="text" class='field' value='' placeholder='Nombre' name='txtnombre' required />
+                            <input type="number" class='field' value='' placeholder='Cedula' name='txtcedula' ng-model="cedula" required />
                             <br><br>
-                            <input type="text" class='field' value='' placeholder='Primer Apellido' name='txtapp1' required />
+                            <input type="text" class='field' value='' placeholder='Nombre' name='txtnombre' ng-model="nombre" required />
                             <br><br>
-                            <input type="text" class='field' value='' placeholder='Segundo Apellido' name='txtapp2' required />
+                            <input type="text" class='field' value='' placeholder='Primer Apellido' name='txtapp1' ng-model="apellido1" required />
                             <br><br>
-                            <input type="number" class='field' value='' placeholder='Telefono' name='txttel' required />
+                            <input type="text" class='field' value='' placeholder='Segundo Apellido' name='txtapp2' ng-model="apellido2" required />
                             <br><br>
-                            <input type="text" class='field' value='' placeholder='Provincia' name='txtprovincia' required />
+                            <input type="number" class='field' value='' placeholder='Telefono' name='txttel' ng-model="telefono" required />
                             <br><br>
-                            <input type="text" class='field' value='' placeholder='Canton' name='txtcanton' required />
+                            <input type="password" class='field' value='' placeholder='Password' name='txtpass' ng-model="password" required />
                             <br><br>
-                            <input type="text" class='field' value='' placeholder='Distrito' name='txtdistrito' required />
+                            <input type="text" class='field' value='' placeholder='Provincia' name='txtprovincia' ng-model="provincia" required />
                             <br><br>
-                            <input type="text" class='field' value='' placeholder='Direccion' name='txtdir' required />
+                            <input type="text" class='field' value='' placeholder='Canton' name='txtcanton' ng-model="canton" required />
                             <br><br>
-                            <input type="date" class='field' value='' placeholder='Fecha Nacimiento' name='txtFechaNac' required />
+                            <input type="text" class='field' value='' placeholder='Distrito' name='txtdistrito' ng-model="distrito" required />
                             <br><br>
-                            <a href='main.html' class="btn btn-success" role="button">
-                                Registrarse
-                            </a>  
+                            <input type="text" class='field' value='' placeholder='Direccion' name='txtdir' ng-model="direccion" required />
+                            <br><br>
+                            <input type="date" class='field' value='' placeholder='Fecha Nacimiento' name='txtFechaNac' ng-model="fecha" required />
+                            <br><br>
+                            
+                            <button type="button" class="button button-primary" ng-click="register()">LOGIN</button>
                         </center>
                     </form>
                 

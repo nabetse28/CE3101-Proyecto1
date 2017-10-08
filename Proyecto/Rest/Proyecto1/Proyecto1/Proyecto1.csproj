@@ -117,6 +117,7 @@
     <Content Include="Scripts - Views\IndexController.js" />
     <Content Include="Scripts - Views\Login.js" />
     <Content Include="Scripts - Views\Main.js" />
+    <Content Include="Scripts - Views\Register.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-aria.js" />
