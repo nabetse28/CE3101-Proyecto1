@@ -6,4 +6,16 @@ pedidos.controller("pedidosController", function ($scope, $http, $location) {
             $scope.pedidosid = response.data;
             console.log("Geted");
         });
+    $scope.moveToId = function (idPedido) {
+        window.localStorage.setItem("idPedido", idPedido);
+        window.location = "http://localhost:64698/mywebsite/pedido.html";
+    };
+});
+pedidos.controller("pedidoController", function ($scope, $http, $location) {
+    $http.get('http://localhost:64698/api/PedidoxMedicamento/GetMedicamentosxPedido?id=' + window.localStorage.getItem("idPedido"))
+        .then(function (response) {
+            console.log("Geting", window.localStorage.getItem("idPedido"));
+            $scope.medicinas = response.data;
+            console.log("Geted");
+        });
 });

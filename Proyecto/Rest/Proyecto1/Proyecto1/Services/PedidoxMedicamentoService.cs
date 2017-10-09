@@ -41,6 +41,31 @@ namespace Proyecto1.Services
             return ListPedidosxMedicamento;
         }
 
+        public List<MedicamentosxPedido> GetMedicamentosxPedido(int id)
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+            SqlDataReader read;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+            command = new SqlCommand("select PedidoxMedicamento.Cantidad, Medicamento.Nombre from PedidoxMedicamento inner join Medicamento on PedidoxMedicamento.IdMedicamento=Medicamento.IdMedicamento where  PedidoxMedicamento.LogicDelete = 0 and PedidoxMedicamento.IdPedido="+id.ToString(), conn);
+            read = command.ExecuteReader();
+
+            List<MedicamentosxPedido> ListPedidosxMedicamento = new List<MedicamentosxPedido>();
+            while (read.Read())
+            {
+                MedicamentosxPedido pedidoxMedicamento = new MedicamentosxPedido();
+                pedidoxMedicamento.Cantidad = Convert.ToInt32(read["Cantidad"]);
+                pedidoxMedicamento.Nombre = Convert.ToString(read["Nombre"]);
+                ListPedidosxMedicamento.Add(pedidoxMedicamento);
+
+            }
+            read.Close();
+            conn.Close();
+            return ListPedidosxMedicamento;
+        }
+
         public void PostPedidoxMedicamento([FromBody] PedidoxMedicamento pedidoxMedicamento)
         {
             System.Data.SqlClient.SqlConnection conn;

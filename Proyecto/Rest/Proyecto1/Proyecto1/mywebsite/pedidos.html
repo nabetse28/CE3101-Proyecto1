@@ -1,19 +1,7 @@
 ﻿<!DOCTYPE HTML>
-
-
-
 <html ng-app="Pedidos">
-
-
-
 <head>
-
-
-
     <title>Pedidos</title>
-
-
-
     <!— comentario: etiquetas META descriptiva para nuestro sitio web-->
 
     <meta charset='utf-8'><!— Codificacion de documento para uso de caracteres-->
@@ -23,9 +11,6 @@
     <meta name='keywords' content='HTML5,CSS3,JavaScript'>
 
     <link rel="shortcut icon" href="html5.png" />
-
-
-
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -70,12 +55,9 @@
             <section id='contenido'>
 
                 <h1>Mis Pedido</h1>
-
                 <br><br>
-
                 <div class="list-group" ng-controller="pedidosController">
-
-                    <a href="#" class="list-group-item" ng-repeat="pedido in pedidosid">
+                    <a class="list-group-item" ng-repeat="pedido in pedidosid" ng-click="moveToId(pedido.IdPedido)">
                         <center>
                             <h4 class="list-group-item-text">Sucursal: {{pedido.NombreSucursal}}</h4>
 
