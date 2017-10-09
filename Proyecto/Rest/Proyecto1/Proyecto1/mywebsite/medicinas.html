@@ -35,22 +35,27 @@
             </nav>
         </header>
 
-        <section id='main' class="container">
+        <section id='main' class="container" ng-controller="medicamentosController">
             
             <section id='contenido'>
 
                 <h1>Seleciona las medicinas</h1><br>
                 <div class="container">
-                    <div class="row" ng-controller="medicamentosController">
-                        <div class="col-sm-3" style="background-color:lavenderblush;" ng-repeat="med in medicamentosid">
-                            <h3>{{med.Nombre}}</h3>
-                            <h4>Precio: {{med.Precio}}</h4>
-                            <h5>Cantida disponible: {{med.Cantidad}}</h5>
-                            <h5>IdMedicamento: {{med.IdMedicamento}}</h5>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-plus"></i></button>
+                    <div class="row" >
+                        <div class="col-sm-3" style="background-color:lavenderblush;" ng-repeat="med in medicamentosid" >
+                            <center>
+                                <h3>{{med.Nombre}}</h3>
+                                <h4>Precio: {{med.Precio}}</h4>
+                                <h5>Cantida disponible: {{med.Cantidad}}</h5>
+                                <input type="number" min="0" class='field' ng-attr-id="{{'med'+med.IdMedicamento}}" value='' placeholder='Cantidad Solicitada' />
+                            </center>
                         </div>
                     </div> 
                 </div>
+                <br></br>
+                <center>
+                    <button type="button" class="btn btn-primary btn-block" ng-click="rePedido()">Realizar Pedido</button>
+                </center>
             </section>
         </section>
 

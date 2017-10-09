@@ -19,6 +19,13 @@ namespace Proyecto1.Controllers
             PedidoService con = new PedidoService();
             return Ok(con.GetAllPedidos());
         }
+        [HttpGet]
+        [Route("GetLastPedidoId")]
+        public IHttpActionResult GetLastPedidoId()
+        {
+            PedidoService con = new PedidoService();
+            return Ok(con.GetLastPedidoId());
+        }
 
         [HttpPost]
         [Route("PostPedido")]

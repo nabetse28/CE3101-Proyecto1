@@ -58,14 +58,14 @@ namespace Proyecto1.Services
             SqlParameter Cantidad = new SqlParameter("@Cantidad", System.Data.SqlDbType.Int);
             Cantidad.Value = pedidoxMedicamento.Cantidad;
 
-            SqlParameter RecetaImg = new SqlParameter("@RecetaImg", System.Data.SqlDbType.Image);
-            RecetaImg.Value = pedidoxMedicamento.RecetaImg;
+            /*SqlParameter RecetaImg = new SqlParameter("@RecetaImg", System.Data.SqlDbType.Image);
+            RecetaImg.Value = pedidoxMedicamento.RecetaImg;*/
 
-            command = new SqlCommand("insert into PedidoxMedicamento(IdPedido,IdMedicamento,Cantidad,RecetaImg) VALUES (@IdPedido,@IdMedicamento,@Cantidad,@RecetaImg)", conn);
+            command = new SqlCommand("insert into PedidoxMedicamento(IdPedido,IdMedicamento,Cantidad) VALUES (@IdPedido,@IdMedicamento,@Cantidad)", conn);
             command.Parameters.Add(IdPedido);
             command.Parameters.Add(IdMedicamento);
             command.Parameters.Add(Cantidad);
-            command.Parameters.Add(RecetaImg);
+            //command.Parameters.Add(RecetaImg);
             command.ExecuteNonQuery();
 
             conn.Close();

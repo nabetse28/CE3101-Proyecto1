@@ -38,7 +38,25 @@ namespace Proyecto1.Services
             conn.Close();
             return ListPedidos;
         }
+        public int GetLastPedidoId()
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+            SqlDataReader read;
 
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+            command = new SqlCommand("select max(Pedido.IdPedido) as LastId from Pedido where LogicDelete = 0", conn);
+            read = command.ExecuteReader();
+            int ans = -1;
+            while (read.Read())
+            {
+                ans = Convert.ToInt32(read["LastId"]);
+            }
+            read.Close();
+            conn.Close();
+            return ans;
+        }
         public List<PedidosId> GetPedidos(int id)
         {
             System.Data.SqlClient.SqlConnection conn;
