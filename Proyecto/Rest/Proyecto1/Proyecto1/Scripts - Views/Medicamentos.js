@@ -1,7 +1,7 @@
 ﻿var medicamentos = angular.module('Medicamentos', []);
 medicamentos.controller("medicamentosController", function ($scope, $http, $location) {
     $scope.medValues;
-    $scope.lastId;
+    
     $http.get('http://localhost:64698/api/MedicamentoxSucursal/GetMedicamentoxSucursal?id=' + window.localStorage.getItem("idSucursal"))
         .then(function (response) {
             console.log("IdSuc", window.localStorage.getItem("idSucursal"));
@@ -10,6 +10,7 @@ medicamentos.controller("medicamentosController", function ($scope, $http, $loca
         }); 
     
     $scope.rePedido = function () {
+        
         var pedido = {
             IdCedula: window.localStorage.getItem("id"),
             IdSucursal: window.localStorage.getItem("idSucursal"),
@@ -18,10 +19,14 @@ medicamentos.controller("medicamentosController", function ($scope, $http, $loca
         $http.post("http://localhost:64698/api/Pedido/PostPedido", pedido)
             .then(function successCallback(response) {
                 console.log(response);
-                $http.get('http://localhost:64698/api/Pedido/GetLastPedidoId')
-                    .then(function (response) {
-                        $scope.lastId = response.data;
-                    }); 
+
+            }, function errorCallback(response) {
+                console.log(response);
+            });
+        $http.get('http://localhost:64698/api/Pedido/GetLastPedidoId')
+            .then(function (response) {
+                $scope.lastId = response.data;
+                console.log($scope.lastId);
                 angular.forEach($scope.medValues, function (value, key) {
                     var strIdElem = 'med' + value.IdMedicamento;
                     var cantidadMed = angular.element(document.getElementById(strIdElem)).val();
@@ -32,6 +37,7 @@ medicamentos.controller("medicamentosController", function ($scope, $http, $loca
                             Cantidad: cantidadMed,
                             RecetaImg: null
                         };
+                        console.log(PedidoxMedicamento);
                         $http.post("http://localhost:64698/api/PedidoxMedicamento/PostPedidoxMedicamento", PedidoxMedicamento)
                             .then(function successCallback(response) {
                                 console.log(response);
@@ -40,10 +46,16 @@ medicamentos.controller("medicamentosController", function ($scope, $http, $loca
                             });
                     }
                 });
-            }, function errorCallback(response) {
-                console.log(response);
+
             });
+
+
         
+
+
+
+        
+
         
     };
 
