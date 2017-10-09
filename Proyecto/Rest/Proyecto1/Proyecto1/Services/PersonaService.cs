@@ -46,6 +46,38 @@ namespace Proyecto1.Services
             return ListPersonas;
         }
 
+        public Persona GetPersona(int id)
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+            SqlDataReader read;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+            command = new SqlCommand("SELECT *  from Persona where IdCedula="+id.ToString(), conn);
+            read = command.ExecuteReader();
+
+            Persona persona = new Persona();
+            while (read.Read())
+            {
+                persona.IdCedula = Convert.ToInt32(read["IdCedula"]);
+                persona.Nombre = read["Nombre"].ToString();
+                persona.Apellido1 = read["Apellido1"].ToString();
+                persona.Apellido2 = read["Apellido2"].ToString();
+                persona.Telefono = Convert.ToInt32(read["Telefono"]);
+                persona.Contraseña = read["Contraseña"].ToString();
+                persona.Provincia = read["Provincia"].ToString();
+                persona.Canton = read["Canton"].ToString();
+                persona.Distrito = read["Distrito"].ToString();
+                persona.DescripcionDireccion = read["DescripcionDireccion"].ToString();
+                persona.FechaNacimiento = read["FechaNacimiento"].ToString();
+                persona.LogicDelete = Convert.ToBoolean(read["LogicDelete"]);
+            }
+            read.Close();
+            conn.Close();
+            return persona;
+        }
+
         public void PostPersona([FromBody] Persona persona)
         {
             System.Data.SqlClient.SqlConnection conn;

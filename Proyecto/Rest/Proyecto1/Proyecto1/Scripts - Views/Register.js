@@ -1,4 +1,4 @@
-﻿var register = angular.module('Register',[]);
+﻿var register = angular.module('Register', []);
 
 register.controller('registerController', function ($scope, $http) {
     console.log("Register");
@@ -11,9 +11,7 @@ register.controller('registerController', function ($scope, $http) {
     $scope.canton = $scope.canton;
     $scope.distrito = $scope.distrito;
     $scope.fecha = $scope.fecha;
-
     
-
     $scope.register = function () {
         console.log("Hola");
 
@@ -31,11 +29,14 @@ register.controller('registerController', function ($scope, $http) {
             FechaNacimiento: $scope.fecha,
         }
 
+        console.log(usuario);
 
-        $http.post("http://localhost:64698/api/Persona/PostPersona", usuario);
-
-        window.location = "http://localhost:64698/mywebsite/login.html";
-    
-    }
-
+        $http.post("http://localhost:64698/api/Persona/PostPersona", usuario)
+            .then(function successCallback(response) {
+                console.log(response);
+                window.location = "http://localhost:64698/mywebsite/login.html";
+            }, function errorCallback(response) {
+                console.log(response);
+            });
+   }
 });

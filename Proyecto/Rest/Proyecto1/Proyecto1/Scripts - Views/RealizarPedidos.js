@@ -6,4 +6,8 @@ rPedidos.controller("rPedidosController", function ($scope, $http, $location) {
             $scope.sucursales = response.data;
             console.log("Geted");
         });
+    $scope.moveToId = function (idSucursal) {
+        window.localStorage.setItem("idSucursal", idSucursal);
+        window.location = "http://localhost:64698/mywebsite/medicinas.html";
+    };
 });

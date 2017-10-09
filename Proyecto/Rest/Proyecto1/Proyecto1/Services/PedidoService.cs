@@ -47,7 +47,7 @@ namespace Proyecto1.Services
 
             conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
             conn.Open();
-            command = new SqlCommand("select Sucursal.Nombre,Sucursal.Provincia,Sucursal.Canton,Sucursal.Distrito,Pedido.IdPedido from Pedido inner join Sucursal on Pedido.IdSucursal=Sucursal.IdSucursal where Pedido.LogicDelete=0 and Pedido.IdCedula=" + id.ToString(), conn);
+            command = new SqlCommand("select Sucursal.Nombre,Sucursal.Provincia,Sucursal.Canton,Sucursal.Distrito,Pedido.IdPedido from Pedido inner join Sucursal on Pedido.IdSucursal=Sucursal.IdSucursal where Pedido.Estado=0 and Pedido.LogicDelete=0 and Pedido.IdCedula=" + id.ToString(), conn);
             read = command.ExecuteReader();
 
             List<PedidosId> ListPedidos = new List<PedidosId>();
