@@ -43,6 +43,35 @@ namespace Proyecto1.Services
             return ListSucursales;
         }
 
+        public Sucursal GetSucursal(int IdSucursal)
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+            SqlDataReader read;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+            command = new SqlCommand("SELECT * from Sucursal WHERE IdCedula=" + IdSucursal.ToString(), conn);
+            read = command.ExecuteReader();
+
+            Sucursal sucursal = new Sucursal();
+            while (read.Read())
+            {
+                sucursal.IdEmpresa = Convert.ToInt32(read["IdEmpresa"]);
+                sucursal.Nombre = read["Nombre"].ToString();
+                sucursal.Provincia = read["Provincia"].ToString();
+                sucursal.Canton = read["Canton"].ToString();
+                sucursal.Distrito = read["Distrito"].ToString();
+                sucursal.DescripcionDireccion = read["DescripcionDireccion"].ToString();
+                sucursal.LogicDelete = Convert.ToBoolean(read["LogicDelete"]);
+
+
+            }
+            read.Close();
+            conn.Close();
+            return sucursal;
+        }
+
         public void PostSucursal([FromBody] Sucursal sucursal)
         {
             System.Data.SqlClient.SqlConnection conn;
@@ -75,7 +104,6 @@ namespace Proyecto1.Services
 
             command = new SqlCommand("insert into Sucursal(IdEmpresa,Administrador,Nombre,Provincia,Canton,Distrito,DescripcionDireccion) VALUES (@IdEmpresa,@Administrador,@Nombre,@Provincia,@Canton,@Distrito,@DescripcionDireccion)", conn);
             command.Parameters.Add(IdEmpresa);
-            
             command.Parameters.Add(Administrador);
             command.Parameters.Add(Nombre);
             command.Parameters.Add(Provincia);
@@ -85,6 +113,19 @@ namespace Proyecto1.Services
 
             command.ExecuteNonQuery();
 
+            conn.Close();
+
+        }
+        public void DeleteSucursal([FromBody] int IdSucursal)
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+
+            command = new SqlCommand("UPDATE Sucursal SET LogicDelete = 1  WHERE IdSucursal=" + IdSucursal.ToString(), conn);
+            command.ExecuteNonQuery();
             conn.Close();
 
         }

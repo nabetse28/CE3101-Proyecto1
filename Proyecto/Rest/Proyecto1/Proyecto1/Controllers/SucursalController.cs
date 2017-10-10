@@ -20,12 +20,28 @@ namespace Proyecto1.Controllers
             return Ok(con.GetAllSucursales());
         }
 
+        [HttpGet]
+        [Route("GetSucursal")]
+        public IHttpActionResult GetSucursal(int IdSucursal)
+        {
+            SucursalService con = new SucursalService();
+            return Ok(con.GetSucursal(IdSucursal));
+        }
+
         [HttpPost]
         [Route("PostSucursal")]
         public void PostSucursal([FromBody] Sucursal sucursal)
         {
             SucursalService con = new SucursalService();
             con.PostSucursal(sucursal);
+        }
+
+        [HttpPut]
+        [Route("PutLogicDelete")]
+        public void DeleteSucursal([FromBody] int IdSucursal)
+        {
+            SucursalService con = new SucursalService();
+            con.DeleteSucursal(IdSucursal);
         }
     }
 }
