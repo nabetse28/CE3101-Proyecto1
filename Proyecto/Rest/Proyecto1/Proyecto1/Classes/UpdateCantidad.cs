@@ -2,8 +2,8 @@
 {
     public class UpdateCantidad
     {
-        public object IdSucursal { get; internal set; }
-        public object IdMedicamento { get; internal set; }
-        public object Cantidad { get; internal set; }
+        public object IdSucursal { get; set; }
+        public object IdMedicamento { get; set; }
+        public object Cantidad { get; set; }
     }
 }

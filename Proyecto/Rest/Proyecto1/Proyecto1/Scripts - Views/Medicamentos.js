@@ -15,7 +15,7 @@ medicamentos.controller("medicamentosController", function ($scope, $http, $loca
             IdCedula: window.localStorage.getItem("id"),
             IdSucursal: window.localStorage.getItem("idSucursal"),
             Estado: 0
-        }
+        };
         $http.post("http://localhost:64698/api/Pedido/PostPedido", pedido)
             .then(function successCallback(response) {
                 console.log(response);
@@ -26,6 +26,7 @@ medicamentos.controller("medicamentosController", function ($scope, $http, $loca
                         angular.forEach($scope.medValues, function (value, key) {
                             var strIdElem = 'med' + value.IdMedicamento;
                             var cantidadMed = angular.element(document.getElementById(strIdElem)).val();
+                            var updateCantidad = value.Cantidad - cantidadMed;
                             if (cantidadMed > 0 && cantidadMed != '') {
                                 var PedidoxMedicamento = {
                                     IdPedido: $scope.lastId,
@@ -33,10 +34,21 @@ medicamentos.controller("medicamentosController", function ($scope, $http, $loca
                                     Cantidad: cantidadMed,
                                     RecetaImg: null
                                 };
+                                var newCantidad = {
+                                    IdSucursal: window.localStorage.getItem("idSucursal"),
+                                    IdMedicamento: value.IdMedicamento,
+                                    Cantidad: updateCantidad
+                                };
                                 console.log(PedidoxMedicamento);
                                 $http.post("http://localhost:64698/api/PedidoxMedicamento/PostPedidoxMedicamento", PedidoxMedicamento)
                                     .then(function successCallback(response) {
                                         console.log(response);
+                                        $http.post("http://localhost:64698/api/MedicamentoxSucursal/UpdateCantidad", newCantidad)
+                                            .then(function successCallback(response) {
+                                                console.log(response);
+                                            }, function errorCallback(response) {
+                                                console.log(response);
+                                            });
                                     }, function errorCallback(response) {
                                         console.log(response);
                                     });

@@ -42,7 +42,7 @@ namespace Proyecto1.Services
 
             conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
             conn.Open();
-            command = new SqlCommand("select Medicamento.IdMedicamento,Medicamento.Nombre,MedicamentoxSucursal.Cantidad,MedicamentoxSucursal.PrecioSucursal from MedicamentoxSucursal inner join Medicamento on MedicamentoxSucursal.IdMedicamento=Medicamento.IdMedicamento where Medicamento.LogicDelete=0 and MedicamentoxSucursal.IdSucursal=" + idSuc.ToString(), conn);
+            command = new SqlCommand("select Medicamento.IdMedicamento,Medicamento.Nombre,MedicamentoxSucursal.Cantidad,MedicamentoxSucursal.PrecioSucursal from MedicamentoxSucursal inner join Medicamento on MedicamentoxSucursal.IdMedicamento=Medicamento.IdMedicamento where MedicamentoxSucursal.Cantidad>0  and  Medicamento.LogicDelete=0 and MedicamentoxSucursal.IdSucursal=" + idSuc.ToString(), conn);
             read = command.ExecuteReader();
             List<MedicamentoId> ListMedicamentoxSucursal = new List<MedicamentoId>();
             while (read.Read())
@@ -89,28 +89,20 @@ namespace Proyecto1.Services
 
         }
         public void UpdateCantidad([FromBody] UpdateCantidad mxs)
-        {
+        { 
             System.Data.SqlClient.SqlConnection conn;
             SqlCommand command;
 
             conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
             conn.Open();
-
-            SqlParameter IdSucursal = new SqlParameter("@IdSucursal", System.Data.SqlDbType.Int);
-            IdSucursal.Value = mxs.IdSucursal;
-
-            SqlParameter IdMedicamento = new SqlParameter("@IdMedicamento", System.Data.SqlDbType.Int);
-            IdMedicamento.Value = mxs.IdMedicamento;
-
-            SqlParameter Cantidad = new SqlParameter("@Cantidad", System.Data.SqlDbType.Int);
-            Cantidad.Value = mxs.Cantidad;
             
             command = new SqlCommand("update MedicamentoxSucursal set Cantidad = @Cantidad where IdSucursal = @IdSucursal and IdMedicamento = @IdMedicamento", conn);
-            
-            command.Parameters.Add(IdSucursal);
-            command.Parameters.Add(IdMedicamento);
-            command.Parameters.Add(Cantidad);
 
+            command.Parameters.AddWithValue("@IdMedicamento", mxs.IdMedicamento);
+            command.Parameters.AddWithValue("@IdSucursal", mxs.IdSucursal);
+            command.Parameters.AddWithValue("@Cantidad", mxs.Cantidad);
+
+            command.ExecuteNonQuery();
             command.ExecuteNonQuery();
 
             conn.Close();
