@@ -46,6 +46,18 @@ namespace Proyecto1.Services
             return ListPersonas;
         }
 
+        public void UpdatePersona([FromBody] Persona persona)
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+
+
+
+        }
+
         public Persona GetPersona(int id)
         {
             System.Data.SqlClient.SqlConnection conn;
@@ -77,6 +89,22 @@ namespace Proyecto1.Services
             conn.Close();
             return persona;
         }
+
+        public void DeletePersona([FromBody] int cedula)
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+
+            Console.WriteLine("Porqui estuvo el dato");
+            command = new SqlCommand("UPDATE Persona SET LogicDelete = 1  WHERE IdCedula=" + cedula.ToString(), conn);
+            command.ExecuteNonQuery();
+            conn.Close();
+
+        }
+
 
         public void PostPersona([FromBody] Persona persona)
         {

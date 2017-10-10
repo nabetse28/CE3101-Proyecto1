@@ -37,6 +37,15 @@ namespace Proyecto1.Controllers
             con.PostPersona(persona);
         }
 
+        [HttpPut]
+        [Route("PutLogicDelete")]
+        public void DeletePersona([FromBody] int cedula)
+        {
+            PersonaService con = new PersonaService();
+            con.DeletePersona(cedula);
+        }
+
+
         [HttpGet]
         [Route("SignInVerification")]
         public IHttpActionResult SignInVerification(int id, string contraseña)
