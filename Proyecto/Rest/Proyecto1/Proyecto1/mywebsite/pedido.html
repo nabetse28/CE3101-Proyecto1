@@ -52,11 +52,11 @@
 
         <section id='main'>
 
-            <section id='contenido' ng-controller="pedidoController">
+            <section id='contenido'>
 
                 <h1>Mi Pedido</h1>
                 <br><br>
-                <div class="list-group" >
+                <div class="list-group" ng-controller="pedidoController">
                     <a class="list-group-item" ng-repeat="medicina in medicinas">
                         <center>
                             <h4 class="list-group-item-text">Medicamento: {{medicina.Nombre}}</h4>
@@ -65,6 +65,11 @@
 
                         </center>
                     </a>
+                </div>
+                <div ng-controller="precioController">
+                    <center>
+                        <h4>Precio total: {{precio}}</h4>
+                    </center>
                 </div>
 
             </section>

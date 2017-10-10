@@ -19,3 +19,11 @@ pedidos.controller("pedidoController", function ($scope, $http, $location) {
             console.log("Geted");
         });
 });
+pedidos.controller("precioController", function ($scope, $http) {
+    $http.get('http://localhost:64698/api/PedidoxMedicamento/GetPrecioTotal?id=' + window.localStorage.getItem("idPedido"))
+        .then(function (response) {
+            console.log("Geting");
+            $scope.precio = response.data;
+            console.log("Geted");
+        });
+});

@@ -33,5 +33,12 @@ namespace Proyecto1.Controllers
             MedicamentoxSucursalService con = new MedicamentoxSucursalService();
             con.PostMedicamentoxSucursal(mxs);
         }
+        [HttpPost]
+        [Route("UpdateCantidad")]
+        public void UpdateCantidad([FromBody] UpdateCantidad mxs)
+        {
+            MedicamentoxSucursalService con = new MedicamentoxSucursalService();
+            con.UpdateCantidad(mxs);
+        }
     }
 }

@@ -88,6 +88,34 @@ namespace Proyecto1.Services
             conn.Close();
 
         }
+        public void UpdateCantidad([FromBody] UpdateCantidad mxs)
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+
+            SqlParameter IdSucursal = new SqlParameter("@IdSucursal", System.Data.SqlDbType.Int);
+            IdSucursal.Value = mxs.IdSucursal;
+
+            SqlParameter IdMedicamento = new SqlParameter("@IdMedicamento", System.Data.SqlDbType.Int);
+            IdMedicamento.Value = mxs.IdMedicamento;
+
+            SqlParameter Cantidad = new SqlParameter("@Cantidad", System.Data.SqlDbType.Int);
+            Cantidad.Value = mxs.Cantidad;
+            
+            command = new SqlCommand("update MedicamentoxSucursal set Cantidad = @Cantidad where IdSucursal = @IdSucursal and IdMedicamento = @IdMedicamento", conn);
+            
+            command.Parameters.Add(IdSucursal);
+            command.Parameters.Add(IdMedicamento);
+            command.Parameters.Add(Cantidad);
+
+            command.ExecuteNonQuery();
+
+            conn.Close();
+
+        }
 
     }
 }

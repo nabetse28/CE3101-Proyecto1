@@ -49,7 +49,7 @@ namespace Proyecto1.Services
 
             conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
             conn.Open();
-            command = new SqlCommand("select PedidoxMedicamento.Cantidad, Medicamento.Nombre from PedidoxMedicamento inner join Medicamento on PedidoxMedicamento.IdMedicamento=Medicamento.IdMedicamento where  PedidoxMedicamento.LogicDelete = 0 and PedidoxMedicamento.IdPedido="+id.ToString(), conn);
+            command = new SqlCommand("select PedidoxMedicamento.IdMedicamento, PedidoxMedicamento.Cantidad, Medicamento.Nombre, MedicamentoxSucursal.PrecioSucursal from ((PedidoxMedicamento inner join Pedido on PedidoxMedicamento.IdPedido=Pedido.IdPedido)left join Medicamento on PedidoxMedicamento.IdMedicamento=Medicamento.IdMedicamento)left join  MedicamentoxSucursal on PedidoxMedicamento.IdMedicamento=MedicamentoxSucursal.IdMedicamento and Pedido.IdSucursal=MedicamentoxSucursal.IdSucursal where PedidoxMedicamento.IdPedido=" + id.ToString(), conn);
             read = command.ExecuteReader();
 
             List<MedicamentosxPedido> ListPedidosxMedicamento = new List<MedicamentosxPedido>();
@@ -58,6 +58,7 @@ namespace Proyecto1.Services
                 MedicamentosxPedido pedidoxMedicamento = new MedicamentosxPedido();
                 pedidoxMedicamento.Cantidad = Convert.ToInt32(read["Cantidad"]);
                 pedidoxMedicamento.Nombre = Convert.ToString(read["Nombre"]);
+                pedidoxMedicamento.Precio = Convert.ToInt32(read["PrecioSucursal"]);
                 ListPedidosxMedicamento.Add(pedidoxMedicamento);
 
             }

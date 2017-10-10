@@ -961,6 +961,7 @@
     <Compile Include="Services\PersonaxSucursalService.cs" />
     <Compile Include="Services\RolService.cs" />
     <Compile Include="Services\SucursalService.cs" />
+    <Compile Include="Classes\UpdateCantidad.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

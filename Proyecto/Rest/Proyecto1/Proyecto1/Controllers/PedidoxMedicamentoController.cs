@@ -26,6 +26,18 @@ namespace Proyecto1.Controllers
             PedidoxMedicamentoService con = new PedidoxMedicamentoService();
             return Ok(con.GetMedicamentosxPedido(id));
         }
+        [HttpGet]
+        [Route("GetPrecioTotal")]
+        public IHttpActionResult GetPrecioTotal(int id)
+        {
+            PedidoxMedicamentoService con = new PedidoxMedicamentoService();
+            List<MedicamentosxPedido> l = con.GetMedicamentosxPedido(id);
+            int total = 0;
+            foreach (MedicamentosxPedido m in l) {
+                total = total + m.Precio*m.Cantidad;
+            }
+            return Ok(total);
+        }
         [HttpPost]
         [Route("PostPedidoxMedicamento")]
         public void PostMedicamento([FromBody] PedidoxMedicamento pedidoxMedicamento)
