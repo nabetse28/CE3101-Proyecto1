@@ -19,6 +19,13 @@ namespace Proyecto1.Controllers
             EnfermedadService con = new EnfermedadService();
             return Ok(con.GetAllEnfermedades());
         }
+        [HttpGet]
+        [Route("GetLastId")]
+        public IHttpActionResult GetLastId()
+        {
+            EnfermedadService con = new EnfermedadService();
+            return Ok(con.GetLastId());
+        }
         [HttpPost]
         [Route("PostEnfermedad")]
         public void PostPersona([FromBody] Enfermedad enfermedad)

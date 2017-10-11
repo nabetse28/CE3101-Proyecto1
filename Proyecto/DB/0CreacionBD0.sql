@@ -62,7 +62,7 @@ CREATE TABLE PersonaxSucursal(
 CREATE TABLE MedicamentoxSucursal(
   IdMedicamento INT NOT NULL,
   IdSucursal INT NOT NULL,
-	Cantidad INT NOT NULL,
+  Cantidad INT NOT NULL,
   PrecioSucursal INT NOT NULL,
   LogicDelete BIT NOT NULL DEFAULT 0
 )
@@ -84,12 +84,13 @@ CREATE TABLE Enfermedad(
 CREATE TABLE EnfermedadxPersona(
   IdCedula INT NOT NULL,
   IdEnfermedad INT NOT NULL,
+  FechaEnfermedad DATE NOT NULL,
   LogicDelete BIT NOT NULL DEFAULT 0
 )
 
 
 CREATE TABLE Pedido(
-	IdPedido INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+  IdPedido INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
   IdCedula INT NOT NULL,
   IdSucursal INT NOT NULL,
   Estado BIT NOT NULL,
@@ -188,7 +189,7 @@ ALTER TABLE MedicamentoxCasaFarmaceutica
 ADD CONSTRAINT PK_MedicamentoxCasaFarmaceutica PRIMARY KEY (IdMedicamento,IdCasaFarmaceutica);
 
 ALTER TABLE EnfermedadxPersona
-ADD CONSTRAINT PK_EnfermedadxPersona PRIMARY KEY (IdEnfermedad,IdCedula);
+ADD CONSTRAINT PK_EnfermedadxPersona PRIMARY KEY (IdEnfermedad,IdCedula,FechaEnfermedad);
 
 ALTER TABLE PedidoxMedicamento
 ADD CONSTRAINT PK_PedidoxMedicamento PRIMARY KEY (IdPedido,IdMedicamento);

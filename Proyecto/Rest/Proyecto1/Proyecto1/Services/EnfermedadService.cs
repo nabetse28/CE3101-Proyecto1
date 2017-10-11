@@ -29,6 +29,25 @@ namespace Proyecto1.Services
             }
             return enfermedades;
         }
+        public int GetLastId()
+        {
+            System.Data.SqlClient.SqlConnection conn;
+            SqlCommand command;
+            SqlDataReader read;
+
+            conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
+            conn.Open();
+            command = new SqlCommand("select max(Enfermedad.IdEnfermedad) as LastId from Enfermedad where LogicDelete = 0", conn);
+            read = command.ExecuteReader();
+            int ans = -1;
+            while (read.Read())
+            {
+                ans = Convert.ToInt32(read["LastId"]);
+            }
+            read.Close();
+            conn.Close();
+            return ans;
+        }
         public void PostEnfermedad([FromBody] Enfermedad enfermedad)
         {
             System.Data.SqlClient.SqlConnection conn;
