@@ -94,7 +94,10 @@ CREATE TABLE Pedido(
   IdCedula INT NOT NULL,
   IdSucursal INT NOT NULL,
   Estado BIT NOT NULL,
-  LogicDelete BIT NOT NULL DEFAULT 0
+  LogicDelete BIT NOT NULL DEFAULT 0,
+  Recogido BIT NOT NULL DEFAULT 0,
+  Preparado BIT NOT NULL DEFAULT 0,
+  FechaRecojo DATE NOT NULL
 )
 
 CREATE TABLE PedidoxMedicamento(

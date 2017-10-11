@@ -65,7 +65,7 @@ namespace Proyecto1.Services
 
             conn = new SqlConnection("Data Source=(local);Initial Catalog=Proyecto1;Integrated Security=True");
             conn.Open();
-            command = new SqlCommand("select Sucursal.Nombre,Sucursal.Provincia,Sucursal.Canton,Sucursal.Distrito,Pedido.IdPedido from Pedido inner join Sucursal on Pedido.IdSucursal=Sucursal.IdSucursal where Pedido.Estado=0 and Pedido.LogicDelete=0 and Pedido.IdCedula=" + id.ToString(), conn);
+            command = new SqlCommand("select Sucursal.Nombre,Sucursal.Provincia,Sucursal.Canton,Sucursal.Distrito,Pedido.IdPedido,Pedido.FechaRecojo from Pedido inner join Sucursal on Pedido.IdSucursal=Sucursal.IdSucursal where Pedido.Estado=0 and Pedido.LogicDelete=0 and Pedido.IdCedula=" + id.ToString(), conn);
             read = command.ExecuteReader();
 
             List<PedidosId> ListPedidos = new List<PedidosId>();
@@ -77,6 +77,7 @@ namespace Proyecto1.Services
                 pedido.Provincia = Convert.ToString(read["Provincia"]);
                 pedido.Canton = Convert.ToString(read["Canton"]);
                 pedido.Distrito = Convert.ToString(read["Distrito"]);
+                pedido.FechaRecojo = Convert.ToString(read["FechaRecojo"]);
 
                 ListPedidos.Add(pedido);
 
@@ -103,10 +104,14 @@ namespace Proyecto1.Services
             SqlParameter Estado = new SqlParameter("@Estado", System.Data.SqlDbType.Bit);
             Estado.Value = pedido.Estado;
 
-            command = new SqlCommand("insert into Pedido(IdCedula,IdSucursal,Estado) VALUES (@IdCedula,@IdSucursal,@Estado)", conn);
+            SqlParameter FechaRecojo = new SqlParameter("@FechaRecojo", System.Data.SqlDbType.VarChar);
+            FechaRecojo.Value = pedido.FechaRecojo;
+
+            command = new SqlCommand("insert into Pedido(IdCedula,IdSucursal,Estado,FechaRecojo) VALUES (@IdCedula,@IdSucursal,@Estado,@FechaRecojo)", conn);
             command.Parameters.Add(IdCedula);
             command.Parameters.Add(IdSucursal);
             command.Parameters.Add(Estado);
+            command.Parameters.Add(FechaRecojo);
             command.ExecuteNonQuery();
 
             conn.Close();
